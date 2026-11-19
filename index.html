@@ -524,7 +524,7 @@ select.in{appearance:none;background-image:linear-gradient(45deg,transparent 50%
 .r-job .h b{font-size:12.5px}
 .r-job .h span{font-family:"Manrope",sans-serif;font-size:9.5px;color:#A0784A;letter-spacing:.14em}
 .r-job .o{color:#6E6862;font-size:10.5px}
-.r-job ul{margin:4px 0 0;padding-left:14px;color:#3D3935}
+.r-job ul{margin:4px 0 0;padding-left:14px;color:#3D3935;line-height:1.6}
 .r-side .it{margin-bottom:10px}
 .r-side .it b{display:block;font-size:11.5px;line-height:1.5}
 .r-side .it span{display:block;color:#6E6862;font-size:10px}
@@ -722,7 +722,7 @@ select.in{appearance:none;background-image:linear-gradient(45deg,transparent 50%
    ========================================================= */
 const PROFILE = {
   name:"施富凱", en:"SHIH FU-KAI",
-  role:"刑事警察｜航空警察局臺北分局偵查隊 偵查佐",
+  role:"刑事警察｜航空警察局刑事警察大隊 偵查佐（支援臺北分局偵查隊）",
   lede:"從警滿十年，長期處理毒品案件偵查、證物與數位證據管理、筆錄與案件移送，並受過加密貨幣調查與防制洗錢專業訓練。公務電腦效能有限、Word 常當機、每月報表靠複製貼上，於是我開始用 AI 協作開發，把重複工作一件件做成離線、安全、好上手的工具。",
   summary:"從警十年的刑事偵查人員，具警正升官等考試及格、防制洗錢與打擊資恐專業人員資格，完成加密貨幣調查初、進、高階訓練。擅長把第一線實務流程轉成可落地的系統，以 AI 協作方式開發 19 套工具，其中 13 套已在工作與生活中實際使用，涵蓋案件文書自動化、資料去識別化、影像辨識、考試學習平台與內容營運自動化，並在設計中堅持資料保密與低成本原則。",
   telegram:"mike41907",
@@ -960,18 +960,18 @@ const CAPS = [
 const TECH = ["HTML / CSS / JavaScript","React","TypeScript","Vite","IndexedDB","PWA","Firebase","GitHub","WordPress","Claude API","Codex","Gemini","NotebookLM","OCR","Synology NAS","Prompt Design"];
 
 const EXPERIENCE = [
-  { when:"Present", title:"偵查佐", org:"航空警察局臺北分局 偵查隊",
-    points:["刑事案件偵查，包含毒品案件之拘提、搜索、證物處理與數位證據管理","警詢筆錄製作、案件文書撰擬與移送","承辦每月指紋卡統計、查詢查核等行政業務","自發推動警務行政流程數位化，開發多套單機文書與管理工具"] },
-  { when:"10+ Years", title:"刑事警察", org:"刑事偵查與警務行政",
-    points:["熟悉獎懲、資績計算與警佐班升遷考試制度","具備跨單位協作與勤務分工經驗"] },
+  { when:"2019.01 — 現在", title:"偵查佐", org:"航空警察局刑事警察大隊（支援臺北分局偵查隊）",
+    points:["刑事案件偵查，包含毒品案件之拘提、搜索、證物處理與數位證據管理","警詢筆錄製作、案件文書撰擬與移送","承辦每月指紋卡統計、查詢查核等行政業務","自發推動警務行政流程數位化，開發多套文書與管理工具，13 套已在實務中使用"] },
+  { when:"2015.10 — 2019.01", title:"警員", org:"航空警察局安全檢查大隊 第二大隊",
+    points:["執行機場安全檢查勤務","熟悉獎懲、資績計算與警佐班升遷考試制度"] },
   { when:"2020", title:"公共行政學士", org:"國立空中大學 公共行政學系",
     points:["在職進修取得學士學位"] },
-  { when:"Education", title:"行政警察學系", org:"臺灣警察專科學校",
+  { when:"2015.06", title:"行政警察學系 畢業", org:"臺灣警察專科學校",
     points:["警察專業養成教育，奠定刑事偵查與警察法規基礎"] }
 ];
 const EDUCATION = [
   { school:"國立空中大學", dept:"公共行政學系 學士", year:"2020" },
-  { school:"臺灣警察專科學校", dept:"行政警察學系", year:"" }
+  { school:"臺灣警察專科學校", dept:"行政警察學系", year:"2015" }
 ];
 
 /* type 顯示在卡片上方；hi:true 以金色突顯 */
@@ -982,6 +982,7 @@ const CREDENTIALS = [
   { type:"合格證書", en:"CERTIFICATE", name:"加密貨幣調查高階課程（Expert in Cryptocurrency Investigation）", issuer:"睿科金融科技 iRegtech", date:"2025.05", note:"8 小時，評量合格" },
   { type:"合格證書", en:"CERTIFICATE", name:"加密貨幣調查進階課程（Advanced Cryptocurrency Analysis）", issuer:"睿科金融科技 iRegtech", date:"2024.12", note:"8 小時，評量合格" },
   { type:"合格證書", en:"CERTIFICATE", name:"加密貨幣調查初階課程（Cryptocurrency Investigation 101）", issuer:"睿科金融科技 iRegtech", date:"2024.06", note:"8 小時，評量合格" },
+  { type:"語言能力", en:"LANGUAGE", name:"TOEIC 多益測驗 700 分（最高分）", issuer:"ETS / 忠欣股份有限公司", date:"", note:"" },
   { type:"獎章", en:"HONOR", name:"從警 10 年服務相關獎章", issuer:"警察機關", date:"2026.08", note:"" }
 ];
 
@@ -1500,7 +1501,7 @@ function renderHome(){
   $("#timeline").innerHTML = EXPERIENCE.map(e => `<div class="tl"><div class="when">${esc(e.when)}</div><div><h3>${esc(e.title)}</h3><div class="org">${esc(e.org)}</div><ul>${e.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div></div>`).join("");
   $("#creds").innerHTML = CREDENTIALS.map(c => `<div class="cred ${c.hi?"hi":""}">${c.hi?'<span class="emblem"></span>':""}
       <span class="type">${esc(c.en)} · ${esc(c.type)}</span><h3>${esc(c.name)}</h3><span class="issuer">${esc(c.issuer)}</span>${c.note?`<span class="note">${esc(c.note)}</span>`:""}
-      <span class="date"><span>${esc(c.date)}</span></span></div>`).join("");
+      <span class="date"><span>${esc(c.date || "最高分紀錄")}</span></span></div>`).join("");
   $("#tg-handle").textContent = "@" + PROFILE.telegram;
   $("#tg-link").href = "https://t.me/" + PROFILE.telegram;
   $("#copy-tg").addEventListener("click", () => copy("@" + PROFILE.telegram, "已複製 Telegram 帳號"));
@@ -1546,7 +1547,7 @@ function renderDetail(i){
 function renderResume(){
   const photo = PROFILE.photo ? `<div class="r-photo"><img src="${PROFILE.photo}" alt="${esc(PROFILE.photoAlt)}"></div>` : "<div></div>";
   const foot = (n,t) => `<div class="rf"><span>${esc(PROFILE.name)}　${PROFILE.en} · 履歷作品集</span><span>線上互動作品集：${PROFILE.site}</span><span>${n} / ${t}</span></div>`;
-  const certs = CREDENTIALS.map(c => `<div class="it"><b>${esc(c.name)}</b><span>${esc(c.type)} · ${esc(c.issuer)} · ${esc(c.date)}</span></div>`).join("");
+  const certs = CREDENTIALS.map(c => `<div class="it"><b>${esc(c.name)}</b><span>${esc(c.type)} · ${esc(c.issuer)}${c.date ? " · " + esc(c.date) : ""}</span></div>`).join("");
   const p1 = `<div class="a4"><div class="pg">
     <div class="r-head"><div><div class="k">CURRICULUM VITAE &amp; PORTFOLIO</div><h1>${esc(PROFILE.name)}</h1><div class="en">${PROFILE.en}</div>
       <div class="ti">${esc(PROFILE.role)}</div>
@@ -1554,11 +1555,11 @@ function renderResume(){
     <div class="r-cols"><div>
       <div class="r-sec"><h3>個人摘要<small>PROFILE</small></h3><p>${esc(PROFILE.summary)}</p></div>
       <div class="r-sec"><h3>核心能力<small>CAPABILITIES</small></h3><div class="r-cap">${CAPS.map(([,t,d]) => `<div><b>${esc(t)}</b><span>${esc(d)}</span></div>`).join("")}</div></div>
-      <div class="r-sec"><h3>經歷<small>EXPERIENCE</small></h3>${EXPERIENCE.slice(0,2).map(e => `<div class="r-job"><div class="h"><b>${esc(e.title)}　${esc(e.org)}</b><span>${esc(e.when)}</span></div><ul>${e.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>`).join("")}</div>
+      <div class="r-sec"><h3>經歷<small>EXPERIENCE</small></h3>${EXPERIENCE.slice(0,2).map((e,k) => `<div class="r-job"><div class="h"><b>${esc(e.title)}　${esc(e.org)}</b><span>${esc(e.when)}</span></div><ul>${e.points.slice(0, k ? 1 : 4).map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>`).join("")}</div>
+      <div class="r-sec"><h3>技術與工具<small>TOOLS</small></h3><div class="r-chips">${TECH.map(t => `<span>${esc(t)}</span>`).join("")}</div></div>
     </div><div class="r-side">
       <div class="r-sec"><h3>學歷<small>EDUCATION</small></h3>${EDUCATION.map(e => `<div class="it"><b>${esc(e.school)}</b><span>${esc(e.dept)}${e.year?"　"+esc(e.year):""}</span></div>`).join("")}</div>
       <div class="r-sec"><h3>證照與證書<small>CREDENTIALS</small></h3>${certs}</div>
-      <div class="r-sec"><h3>技術與工具<small>TOOLS</small></h3><div class="r-chips">${TECH.map(t => `<span>${esc(t)}</span>`).join("")}</div></div>
     </div></div>`;
   const chunks = [SYSTEMS.slice(0,6), SYSTEMS.slice(6,14), SYSTEMS.slice(14)];
   const total = 1 + chunks.length;
