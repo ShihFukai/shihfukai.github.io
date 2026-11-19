@@ -12,6 +12,7 @@
 <meta property="og:image" content="https://shihfukai.github.io/photo.jpg">
 <meta property="og:url" content="https://shihfukai.github.io/">
 <meta name="theme-color" content="#F7F4EF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Ccircle cx=%2232%22 cy=%2232%22 r=%2230%22 fill=%22%23F7F4EF%22 stroke=%22%239A733B%22 stroke-width=%223%22/%3E%3Ctext x=%2232%22 y=%2243%22 font-size=%2230%22 text-anchor=%22middle%22 fill=%22%239A733B%22 font-family=%22serif%22%3E%E6%96%BD%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Manrope:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=LXGW+WenKai+TC:wght@400;700&display=swap" rel="stylesheet">
@@ -322,6 +323,105 @@ body[data-view="resume"]{background:#E8E2D9}
 .track span{flex:none;display:grid;place-items:center;padding:0 10px;height:38px;border-radius:7px;color:#fff;font-size:12px;white-space:nowrap}
 .track:empty::before{content:"時間軸是空的，按「AI 挑選精華」";color:var(--muted);font-size:13px;align-self:center;padding-left:6px}
 @media (max-width: 620px){ .clips{grid-template-columns:repeat(2,1fr)} }
+
+/* ===== works ===== */
+.shot{border-radius:14px;overflow:hidden;background:var(--surface);border:1px solid var(--line-2);box-shadow:0 24px 50px -28px rgba(70,48,24,.45)}
+.shot-bar{display:flex;align-items:center;gap:10px;height:30px;padding:0 12px;background:var(--field);border-bottom:1px solid var(--line);font-size:11px;color:var(--muted)}
+.shot-bar i{width:7px;height:7px;border-radius:50%;background:rgba(52,38,24,.16)}
+.shot-bar span{margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shot-view{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--surface)}
+.shot-view::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(transparent,var(--surface));pointer-events:none}
+.shot-inner{position:absolute;left:0;top:0;width:1080px;padding:26px 28px;transform-origin:0 0;pointer-events:none;user-select:none}
+.stage-bg{padding:18px;background:radial-gradient(120% 90% at 85% 0%,color-mix(in srgb,var(--a) 20%,transparent),transparent 60%),linear-gradient(160deg,#FBF8F3,#EFE8DD)}
+.case{position:relative;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 1px 2px rgba(70,48,24,.05);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s}
+.case:hover{transform:translateY(-4px);box-shadow:0 34px 60px -34px rgba(70,48,24,.45);border-color:color-mix(in srgb,var(--a) 40%,transparent)}
+.case .stage-bg{border-bottom:1px solid var(--line)}
+.case:hover .shot{transform:translateY(-3px)}
+.case .shot{transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.case-body{position:relative;z-index:1;padding:22px 26px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.case-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.case-top .no{font-family:var(--font-latin);font-size:12px;letter-spacing:.18em;color:var(--muted)}
+.case h3{font-size:24px;line-height:1.35}
+.case h3 a::after{content:"";position:absolute;inset:0;z-index:1}
+.case h3 a:focus-visible{outline:none}
+.case:has(h3 a:focus-visible){outline:2px solid var(--gold);outline-offset:3px}
+.case .one{margin:0;color:var(--text-2);font-size:15px;line-height:1.75;font-weight:300}
+.case ul{list-style:none;margin:2px 0 0;padding:0;display:grid;gap:6px}
+.case li{position:relative;padding-left:18px;font-size:14px;color:var(--muted);line-height:1.65}
+.case li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:1px;background:var(--gold)}
+.case-foot{margin-top:auto;padding-top:12px;display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid var(--line)}
+.case-foot .tags{font-family:var(--font-latin);font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.case-foot .go{font-size:13px;color:var(--a);display:flex;align-items:center;gap:6px;white-space:nowrap}
+.case-foot .go svg{width:14px;height:14px;transition:transform .25s}
+.case:hover .case-foot .go svg{transform:translateX(3px)}
+.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.show{display:grid;grid-template-columns:1.25fr 1fr;align-items:stretch;margin-bottom:24px}
+.show .stage-bg{border-bottom:0;border-right:1px solid var(--line);padding:28px;display:flex;align-items:center}
+.show .stage-bg .shot{width:100%}
+.show .case-body{padding:36px 38px;gap:14px;justify-content:center}
+.show h3{font-size:34px}
+.show .one{font-size:16.5px}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:6px 0 4px}
+.metrics div{padding:12px 14px;border-right:1px solid var(--line)}
+.metrics div:last-child{border-right:0}
+.metrics b{display:block;font-family:var(--font-italic);font-size:28px;line-height:1.1;color:var(--gold-2);font-weight:500;font-variant-numeric:lining-nums}
+.metrics span{font-size:12px;color:var(--muted)}
+.show .acts{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:2;margin-top:4px}
+.minis{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line)}
+.mini{display:grid;grid-template-columns:48px 1fr auto 20px;gap:16px;align-items:center;padding:20px 8px;border-bottom:1px solid var(--line);transition:background .2s}
+.minis .mini:nth-child(odd){border-right:1px solid var(--line);padding-right:24px}
+.minis .mini:nth-child(even){padding-left:24px}
+.mini:hover{background:rgba(154,115,59,.05)}
+.mini .no{font-family:var(--font-latin);font-size:12px;letter-spacing:.16em;color:var(--muted)}
+.mini b{display:block;font-family:var(--font-display);font-size:18px;font-weight:600}
+.mini small{display:block;color:var(--muted);font-size:13.5px;line-height:1.6;margin-top:2px}
+.mini svg{width:16px;height:16px;color:var(--muted)}
+@media (max-width: 980px){ .show{grid-template-columns:1fr} .show .stage-bg{border-right:0;border-bottom:1px solid var(--line)} .show .case-body{padding:26px} .show h3{font-size:28px} }
+@media (max-width: 720px){
+  .cases,.minis{grid-template-columns:1fr}
+  .minis .mini:nth-child(odd){border-right:0;padding-right:8px}.minis .mini:nth-child(even){padding-left:8px}
+  .metrics{grid-template-columns:repeat(2,1fr)} .metrics div:nth-child(2){border-right:0} .metrics div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .case-body{padding:18px 18px 20px} .case h3{font-size:21px} .stage-bg{padding:12px}
+  .mini{grid-template-columns:36px 1fr 20px} .mini .pill{display:none}
+}
+
+/* ===== brand polish ===== */
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+::selection{background:rgba(154,115,59,.22)}
+.progress-top{position:fixed;left:0;top:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--gold),#D9B877);z-index:30}
+.nav nav a{position:relative;padding:4px 0}
+.nav nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .3s}
+.nav nav a.on{color:var(--text)}
+.nav nav a.on::after,.nav nav a:hover::after{transform:scaleX(1)}
+.why{padding-top:130px}
+.why h2{font-size:clamp(40px,6vw,76px);line-height:1.12;margin-top:18px;letter-spacing:.02em}
+.why-lede{font-size:clamp(17px,1.6vw,20px);color:var(--text-2);max-width:34em;margin:26px 0 0;font-weight:300;line-height:1.9}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;border-top:1px solid var(--text)}
+.pillar{padding:28px 32px 6px 0}
+.pillar + .pillar{padding-left:32px;border-left:1px solid var(--line)}
+.pillar .pn{font-family:var(--font-italic);font-size:20px;color:var(--gold);font-variant-numeric:lining-nums}
+.pillar h3{font-size:24px;margin-top:10px}
+.pillar p{color:var(--muted);font-size:15px;font-weight:300;margin:10px 0 0;line-height:1.85}
+.journey{list-style:none;margin:0 0 56px;padding:0;display:grid;grid-template-columns:repeat(7,1fr);position:relative}
+.journey::before{content:"";position:absolute;left:0;right:0;top:9px;height:1px;background:linear-gradient(90deg,var(--line-2),var(--gold))}
+.journey li{position:relative;padding:30px 14px 0 0}
+.journey li::before{content:"";position:absolute;left:0;top:4px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--gold-2)}
+.journey li:last-child::before{background:var(--gold);box-shadow:0 0 0 6px rgba(154,115,59,.15)}
+.journey b{display:block;font-family:var(--font-latin);font-size:13px;letter-spacing:.08em;color:var(--gold-2);font-weight:600}
+.journey span{display:block;font-size:14px;line-height:1.6;margin-top:6px;color:var(--text-2)}
+.spot{position:relative}
+.spot::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(154,115,59,.08),transparent 45%);z-index:0}
+.spot:hover::before{opacity:1}
+.view{animation:viewIn .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes viewIn{from{opacity:.001;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.view{animation:none}}
+.foot-sig{font-family:var(--font-display);font-size:15px;color:var(--text)}
+.to-top{display:inline-flex;align-items:center;gap:8px;color:var(--muted)}
+.to-top:hover{color:var(--gold-2)}
+@media (max-width: 980px){ .pillars{grid-template-columns:1fr} .pillar,.pillar + .pillar{padding:24px 0 6px;border-left:0;border-top:1px solid var(--line)} .pillar:first-child{border-top:0}
+  .journey{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(150px,1fr);overflow-x:auto;padding-bottom:10px;scrollbar-width:none} }
+@media (min-width: 621px){ .br-sm{display:none} }
 /* ===== live demo ===== */
 .demo{border-radius:24px;border:1px solid var(--line-2);background:var(--surface);overflow:hidden;box-shadow:0 40px 80px -40px rgba(70,48,24,.35)}
 .demo-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 22px;border-bottom:1px solid var(--line);background:var(--field)}
@@ -617,11 +717,12 @@ select.in{appearance:none;background-image:linear-gradient(45deg,transparent 50%
 <body data-view="home">
 <div class="ambient" aria-hidden="true"></div>
 
+<div class="progress-top" id="progress-top" aria-hidden="true"></div>
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="#top"><span class="mono-mark">施</span><span><b id="nav-name"></b><small>PORTFOLIO</small></span></a>
     <nav aria-label="頁內導覽">
-      <a href="#systems">系統作品</a><a href="#capabilities">核心能力</a><a href="#experience">經歷</a><a href="#credentials">證照與學歷</a>
+      <a href="#systems" data-spy="systems">作品</a><a href="#why" data-spy="why">優勢</a><a href="#capabilities" data-spy="capabilities">能力</a><a href="#experience" data-spy="experience">經歷</a><a href="#credentials" data-spy="credentials">證照</a>
     </nav>
     <div class="acts">
       <a class="pillbtn" href="#contact">聯絡我</a>
@@ -641,7 +742,7 @@ select.in{appearance:none;background-image:linear-gradient(45deg,transparent 50%
         <p class="thesis rise d2">把第一線警務的<em>重複與痛點</em>，做成每天真的在用的系統。</p>
         <p class="lede rise d3" id="p-lede"></p>
         <div class="hero-actions rise d4">
-          <a class="btn gold" href="#systems">體驗系統作品<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a class="btn gold" href="#systems">看使用中的系統<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
           <a class="btn ghost" href="#resume">下載履歷作品集</a>
         </div>
       </div>
@@ -653,16 +754,28 @@ select.in{appearance:none;background-image:linear-gradient(45deg,transparent 50%
     </div>
     <div class="stats" id="stats"></div>
 
-    <section aria-labelledby="ft-h">
-      <div class="sh"><div><div class="label">Featured</div><h2 id="ft-h">代表作品</h2></div>
-        <p>每一套都由我一個人從需求、設計到開發完成。點進去都能直接操作體驗。</p></div>
-      <div class="featured" id="featured"></div>
+    <section id="why" aria-labelledby="why-h" class="why">
+      <div class="label">Why Me</div>
+      <h2 id="why-h">懂第一線，<br class="br-sm">也懂系統。</h2>
+      <p class="why-lede">多數系統是由不在現場的人設計的。我在第一線十年，知道哪一步最花時間、哪份文書最容易出錯，然後自己動手把它做出來，做到同事打開就會用。</p>
+      <div class="pillars">
+        <div class="pillar"><span class="pn">01</span><h3>第一線實務</h3><p>十年刑事偵查，處理毒品、詐欺、通緝案件，熟悉證物、筆錄、移送與公文的每一個細節。</p></div>
+        <div class="pillar"><span class="pn">02</span><h3>金融犯罪專業</h3><p>防制洗錢與打擊資恐專業人員資格，完成加密貨幣調查初階、進階、高階訓練。</p></div>
+        <div class="pillar"><span class="pn">03</span><h3>獨立打造產品</h3><p><span id="why-n"></span> 套系統一人完成，其中 <span id="why-live"></span> 套天天在用；上榜吧 Rankup 已上線並規劃訂閱。</p></div>
+      </div>
     </section>
 
     <section id="systems" aria-labelledby="sys-h">
-      <div class="sh"><div><div class="label">All Systems</div><h2 id="sys-h">全部系統作品</h2></div>
-        <div class="filters" id="filters" role="group" aria-label="依類別篩選"></div></div>
-      <div class="grid" id="grid"></div>
+      <div class="sh"><div><div class="label">In Production</div><h2 id="sys-h">實際使用中的系統</h2></div>
+        <p>以下每一套都已經在工作或生活中天天使用，全部由我一個人從需求、設計到開發完成。點進去可以直接操作。</p></div>
+      <div id="showcase"></div>
+      <div class="cases" id="cases"></div>
+    </section>
+
+    <section id="building" aria-labelledby="bd-h">
+      <div class="sh"><div><div class="label">In Progress</div><h2 id="bd-h">開發中與規劃中</h2></div>
+        <p>持續打造中的下一批工具。</p></div>
+      <div class="minis" id="minis"></div>
     </section>
 
     <section id="capabilities" aria-labelledby="cap-h">
@@ -673,7 +786,8 @@ select.in{appearance:none;background-image:linear-gradient(45deg,transparent 50%
     </section>
 
     <section id="experience" aria-labelledby="ex-h">
-      <div class="sh"><div><div class="label">Experience &amp; Education</div><h2 id="ex-h">經歷與學歷</h2></div></div>
+      <div class="sh"><div><div class="label">Experience &amp; Education</div><h2 id="ex-h">經歷與學歷</h2></div><p>從機場安檢到刑事偵查，再到自己做出產品。</p></div>
+      <ol class="journey" id="journey" aria-label="里程碑"></ol>
       <div class="timeline" id="timeline"></div>
     </section>
 
@@ -738,6 +852,19 @@ const ACCENT = { police:"var(--gold)", exam:"var(--exam)", life:"var(--life)" };
 const STATUS = { live:"使用中", dev:"開發中", plan:"規劃中" };
 
 const SYSTEMS = [
+  { id:"exam-platform", name:"上榜吧 Rankup｜警察考試備考 App", cat:"exam", status:"live", cover:"chart", demo:"exam",
+    link:"https://jingzuo-app.web.app/about/", linkLabel:"前往上榜吧官網",
+    metrics:[["6,800+","歷屆試題"],["5,100+","考點"],["262","部法規"],["1,200+","則判解摘要"]],
+    one:"給輪班警察的考試備考 App：6,800 多題歷屆試題、逐選項詳解、依勤務班表排讀書計畫。網頁版已上線，iPhone 版測試中。",
+    problem:"警察考生多半輪班，讀書時間零碎；考前最怕的，是以為自己會了。市面題庫缺少貼近警察考試的詳解，法規一修正，舊詳解就跟著過時。",
+    solution:"上榜吧以「考點」為單位追蹤學習：作答時標記確定程度，系統用隔日驗證判斷是否真的懂；錯題必須在兩個不同日子都答對才算完成。讀書計畫依勤務班表排進值勤空檔，法規每天對照全國法規資料庫，修法後自動重新校對受影響的題目。",
+    features:["逐選項詳解，附條號並可點開條文原文", "隔日驗證複習：新考點、待驗證、真懂三階段；「很確定卻答錯」列為錯誤觀念優先複習", "錯題討伐：兩個不同日子都答對才算完成，搭配等級與遊戲化介面", "出題分析：比對跨考試重複出題，依歷屆考過次數標出 93 條「必考」條文", "讀書計畫：輸入勤務班表，自動排入值勤空檔，進度落後會提醒", "法規修正連動：內建 262 部法規，每日比對全國法規資料庫", "資績與目標試算：反算警佐班筆試門檻，比較嘉獎與多考一分的效益", "圖卡速記、3,000 多句數字總整理、判解連結、模擬考、通勤語音朗讀"],
+    tech:["Web App", "iPhone App", "Firebase", "雲端帳號同步", "訂閱制"],
+    impact:"網頁版已上線、iPhone 版 TestFlight 測試中，兩邊帳號同步。收錄 101–115 年 6,800 多題、5,100 多個考點、262 部法規、1,200 多則判解摘要；Pro 方案規劃月訂 NT$290、年訂 NT$1,990。",
+    role:"獨立研發；一人完成產品規劃、題庫與法規資料架構、學習機制、介面設計與開發。",
+    flow:["首次開啟選定考試類別，之後只顯示該場考試的內容", "刷題時標記確定程度，看逐選項詳解", "系統依隔日驗證安排複習，錯題以考點追蹤討伐", "輸入勤務班表，自動排讀書計畫並追蹤進度", "模擬考計時作答，查看百分制成績與歷次走勢"],
+    highlights:["用數據找考點：分析 115 年警佐班 196 題，有 29 題幾乎與更早考過的題目相同", "法規修正後自動重新校對題目，詳解註明考試當時與現行規定的差異", "支援警佐班三類、升官等、警大二技、四等行政與刑事警察", "條號、數字與答案自動和法條原文比對，高頻條文另經兩輪逐題審查"],
+    shots:[] },
   { id:"wanted-case", name:"通緝案連動平台", cat:"police", status:"live", cover:"form", demo:"docgen",
     one:"通緝案件資料填一次，整套文書自動連動產出。",
     problem:"通緝案從到案到移送要寫一整套文書，同一筆人犯資料要在多份文件重複登打，改一處就得到處改，容易漏改或打錯。",
@@ -748,17 +875,6 @@ const SYSTEMS = [
     role:"獨立完成需求分析、介面設計與開發；本人與隊上同事為實際使用者。",
     flow:["開檔直接進入填寫頁", "依步驟填入人犯、通緝、緝獲資料", "自動帶入解送報告書、通知書、目錄表與人犯照片", "預覽確認後，一次列印整案文書"],
     highlights:["單一 HTML 檔，公務電腦不需安裝任何軟體", "列印版面對齊原有公文格式，使用者不需重新適應", "從初版迭代到 V11 系列；比較三種介面樣式後，選定「逐步引導」全面改版"],
-    shots:[] },
-  { id:"drug-docs", name:"毒品案件文書自動化系統", cat:"police", status:"dev", cover:"docs", demo:"batch",
-    one:"整合案件、證物與檢體資料，自動產生 18 種文書並批次列印。",
-    problem:"毒品案件文書種類多，資料分散在照片、證物、尿液檢體與數位證物之間；多人同時分工時，版本很容易對不上。",
-    solution:"以 HTML 為主介面整合全案資料，經資料驗證後一鍵產生 18 種文書並批次列印。PDF 用於歸檔、Word 為選用格式，列印結果貼近原本的 Word 公文樣式，使用者完全不必碰 JSON。",
-    features:["18 種文書自動產生、批次列印","資料驗證，送印前先抓缺漏","支援五人分工：文書與證物、手機檢視、筆錄與案件處理","評估後取消 LINE 整合，改為完全離線單機","PDF 歸檔，Word 選用"],
-    tech:["HTML","JavaScript","PDF 輸出","單機離線"],
-    impact:"首版鎖定單機、離線、高效率的實務作業，先求穩定好用，再談擴充。",
-    role:"規劃整體資料結構、18 種文書範本與五人分工流程。",
-    flow:["建立案件，登錄嫌疑人與搜索扣押資料", "登錄證物、照片、尿液檢體與數位證物", "資料驗證，標出缺漏欄位", "勾選文書，一鍵批次產生並列印，PDF 歸檔"],
-    highlights:["五人分工：兩人負責文書與證物、一人手機檢視、兩人負責筆錄與案件處理", "評估 LINE 整合後決定取消，改為完全離線以降低資安風險", "使用者不需處理 JSON，所有操作都在畫面上完成"],
     shots:[] },
   { id:"deid", name:"案件資料去識別化工具", cat:"police", status:"live", cover:"mask", demo:"deid",
     one:"匯入案件檔案，系統協助去識別化，讓資料能安全交給 AI 處理。",
@@ -837,28 +953,6 @@ const SYSTEMS = [
     flow:["掃描案件文件", "選擇掃描日期與文件類型", "輸入案件關鍵字", "一鍵依規則重新命名並歸檔"],
     highlights:["只在內部網路運作，不使用雲端或外部 API", "檔名以掃描日期開頭，調閱時依時間排序", "文件類型用下拉選單，也能人工輸入特殊類型"],
     shots:[] },
-  { id:"transfer-doc", name:"移送書系統", cat:"police", status:"plan", cover:"form", demo:"docgen",
-    one:"在瀏覽器擬刑事案件移送書，取代容易當機的 Word。",
-    problem:"公務電腦記憶體不足，用 Word 擬移送書常常當機，稿子白打。",
-    solution:"依照「先拿範本、再替換內容」的實際擬稿習慣，做成以範本為核心的移送書擬稿工具，搭配自動儲存。",
-    features:["範本庫，依案類套用","欄位替換與即時預覽","自動儲存，當機不怕"],
-    tech:["HTML","JavaScript"],
-    impact:"規劃中，將與通緝案連動平台共用案件資料。",
-    role:"依自己實際擬稿的習慣規劃工具。",
-    flow:["選擇案類範本", "填入被移送人、案由、犯罪事實與證據", "即時預覽移送書", "自動儲存，完成後列印"],
-    highlights:["以「先拿範本、再替換內容」的實際習慣為核心", "在瀏覽器執行，避開 Word 當機問題", "規劃與通緝案連動平台共用案件資料"],
-    shots:[] },
-  { id:"workbench", name:"警務快捷工作台", cat:"police", status:"dev", cover:"form", demo:"docgen",
-    one:"案件變數中心加公文組裝器，日常警務流程一站完成。",
-    problem:"同一案的當事人、案號、時間地點等資料，在不同文書與流程中反覆出現，每次都要重打。",
-    solution:"建立「案件變數中心」集中管理案件資料，搭配公文組裝器自動帶入；全程持續自動儲存，誤關視窗也不會遺失。",
-    features:["案件變數中心","公文組裝器","持續自動儲存"],
-    tech:["HTML","JavaScript","localStorage"],
-    impact:"目前為 v0.4.0 案件中心版，核心原則是低成本、安全、有效率。",
-    role:"設計案件變數中心的資料模型與自動儲存機制。",
-    flow:["在案件變數中心輸入一次案件資料", "公文組裝器自動帶入各類文書", "修改任一變數，所有文書同步更新", "全程自動儲存"],
-    highlights:["一個變數改一次，所有文書同步", "隨時自動儲存，誤關視窗也不會遺失", "以低成本、安全、有效率為設計原則"],
-    shots:[] },
   { id:"work-portal", name:"公務入口", cat:"police", status:"live", cover:"portal", demo:"portal",
     one:"把每天要用的公務系統集中在一頁。",
     problem:"上班要開的系統很多，網址與常用資料散在各處，每天光是找入口就浪費時間。",
@@ -869,18 +963,6 @@ const SYSTEMS = [
     role:"整理每天必用的系統，做成個人上班入口。",
     flow:["打開入口頁", "點選要用的系統", "常用資料一鍵複製", "規劃整合進「百寶箱」"],
     highlights:["每天上班的第一個畫面", "省下記網址、找連結的時間", "單機 HTML，打開即用"],
-    shots:[] },
-  { id:"exam-platform", name:"上榜吧 Rankup｜警察考試備考 App", cat:"exam", status:"live", cover:"chart", demo:"exam",
-    link:"https://jingzuo-app.web.app/about/", linkLabel:"前往上榜吧官網",
-    one:"給輪班警察的考試備考 App：6,800 多題歷屆試題、逐選項詳解、依勤務班表排讀書計畫。網頁版已上線，iPhone 版測試中。",
-    problem:"警察考生多半輪班，讀書時間零碎；考前最怕的，是以為自己會了。市面題庫缺少貼近警察考試的詳解，法規一修正，舊詳解就跟著過時。",
-    solution:"上榜吧以「考點」為單位追蹤學習：作答時標記確定程度，系統用隔日驗證判斷是否真的懂；錯題必須在兩個不同日子都答對才算完成。讀書計畫依勤務班表排進值勤空檔，法規每天對照全國法規資料庫，修法後自動重新校對受影響的題目。",
-    features:["逐選項詳解，附條號並可點開條文原文", "隔日驗證複習：新考點、待驗證、真懂三階段；「很確定卻答錯」列為錯誤觀念優先複習", "錯題討伐：兩個不同日子都答對才算完成，搭配等級與遊戲化介面", "出題分析：比對跨考試重複出題，依歷屆考過次數標出 93 條「必考」條文", "讀書計畫：輸入勤務班表，自動排入值勤空檔，進度落後會提醒", "法規修正連動：內建 262 部法規，每日比對全國法規資料庫", "資績與目標試算：反算警佐班筆試門檻，比較嘉獎與多考一分的效益", "圖卡速記、3,000 多句數字總整理、判解連結、模擬考、通勤語音朗讀"],
-    tech:["Web App", "iPhone App", "Firebase", "雲端帳號同步", "訂閱制"],
-    impact:"網頁版已上線、iPhone 版 TestFlight 測試中，兩邊帳號同步。收錄 101–115 年 6,800 多題、5,100 多個考點、262 部法規、1,200 多則判解摘要；Pro 方案規劃月訂 NT$290、年訂 NT$1,990。",
-    role:"獨立研發；一人完成產品規劃、題庫與法規資料架構、學習機制、介面設計與開發。",
-    flow:["首次開啟選定考試類別，之後只顯示該場考試的內容", "刷題時標記確定程度，看逐選項詳解", "系統依隔日驗證安排複習，錯題以考點追蹤討伐", "輸入勤務班表，自動排讀書計畫並追蹤進度", "模擬考計時作答，查看百分制成績與歷次走勢"],
-    highlights:["用數據找考點：分析 115 年警佐班 196 題，有 29 題幾乎與更早考過的題目相同", "法規修正後自動重新校對題目，詳解註明考試當時與現行規定的差異", "支援警佐班三類、升官等、警大二技、四等行政與刑事警察", "條號、數字與答案自動和法條原文比對，高頻條文另經兩輪逐題審查"],
     shots:[] },
   { id:"promotion", name:"警察升遷戰情室", cat:"exam", status:"live", cover:"chart", demo:"calc",
     one:"資績試算、獎勵累計與警佐班報考數據，一頁看清升遷局勢。",
@@ -904,17 +986,6 @@ const SYSTEMS = [
     flow:["填主題、上傳照片並寫下真實心得", "AI 研究並提出大綱，人工確認", "依照片與心得撰寫，學習原有文風並去除 AI 腔", "SEO／GEO／AEO 優化，人工確認照片位置", "一次發布 WordPress、Facebook、Instagram、Threads"],
     highlights:["真實體驗與原創照片優先，AI 負責整理與優化", "每月成本設目標、警戒、上限三道線", "NAS 照片直接選用，敏感憑證只放本機"],
     shots:[] },
-  { id:"cutos", name:"CutOS｜AI 影片剪輯系統", cat:"life", status:"dev", cover:"video", demo:"video",
-    one:"自己打造的 AI 剪輯程式，為夫妻美食旅遊頻道剪片，剪完接著用 AI 發文。",
-    problem:"想經營和老婆一起吃美食、去旅遊的 YouTube 與 Instagram 頻道，但每支影片都要從大量素材挑片段、剪接，非常花時間。",
-    solution:"自己開發 AI 剪輯程式：匯入拍攝素材，由 AI 協助挑出精華片段並完成剪輯，人工確認後輸出影片，再接上 AI 發文流程，從拍攝到上架一條龍。",
-    features:["匯入拍攝素材，由 AI 協助挑選精華片段","AI 協助剪輯，人工確認後輸出","剪好的影片接續 AI 撰寫貼文","為 YouTube 與 Instagram 頻道經營而設計"],
-    tech:["AI 影片剪輯","Web App","GitHub"],
-    impact:"用來經營自己的美食旅遊影片頻道，與 Pickyeaterr Content OS 一起構成個人內容營運流程。",
-    role:"獨立規劃與開發；本人即為使用者。",
-    flow:["匯入當天拍攝的影片素材","AI 分析素材並挑出精華片段","自動組成粗剪時間軸，人工微調","輸出影片並交給 AI 撰寫貼文"],
-    highlights:["從自己真實的頻道經營需求出發","AI 負責繁瑣的挑片與粗剪，人只做最後判斷","與部落格內容系統串成完整的個人內容流程"],
-    shots:[] },
   { id:"goal-system", name:"目標達成系統", cat:"life", status:"live", cover:"phone", demo:"goal",
     one:"讓訂下的目標真的被完成的個人系統。",
     problem:"這幾年訂了不少目標卻沒完成，例如一直想做到一下引體向上。",
@@ -926,6 +997,39 @@ const SYSTEMS = [
     flow:["訂下一個具體目標", "拆成可執行的漸進步驟", "每完成一步就打勾", "看完成度一路推進到達成"],
     highlights:["第一個目標：完成 1 下引體向上", "先用一個目標驗證方法，再擴展", "已上線使用"],
     shots:[] },
+  { id:"drug-docs", name:"毒品案件文書自動化系統", cat:"police", status:"dev", cover:"docs", demo:"batch",
+    one:"整合案件、證物與檢體資料，自動產生 18 種文書並批次列印。",
+    problem:"毒品案件文書種類多，資料分散在照片、證物、尿液檢體與數位證物之間；多人同時分工時，版本很容易對不上。",
+    solution:"以 HTML 為主介面整合全案資料，經資料驗證後一鍵產生 18 種文書並批次列印。PDF 用於歸檔、Word 為選用格式，列印結果貼近原本的 Word 公文樣式，使用者完全不必碰 JSON。",
+    features:["18 種文書自動產生、批次列印","資料驗證，送印前先抓缺漏","支援五人分工：文書與證物、手機檢視、筆錄與案件處理","評估後取消 LINE 整合，改為完全離線單機","PDF 歸檔，Word 選用"],
+    tech:["HTML","JavaScript","PDF 輸出","單機離線"],
+    impact:"首版鎖定單機、離線、高效率的實務作業，先求穩定好用，再談擴充。",
+    role:"規劃整體資料結構、18 種文書範本與五人分工流程。",
+    flow:["建立案件，登錄嫌疑人與搜索扣押資料", "登錄證物、照片、尿液檢體與數位證物", "資料驗證，標出缺漏欄位", "勾選文書，一鍵批次產生並列印，PDF 歸檔"],
+    highlights:["五人分工：兩人負責文書與證物、一人手機檢視、兩人負責筆錄與案件處理", "評估 LINE 整合後決定取消，改為完全離線以降低資安風險", "使用者不需處理 JSON，所有操作都在畫面上完成"],
+    shots:[] },
+  { id:"workbench", name:"警務快捷工作台", cat:"police", status:"dev", cover:"form", demo:"docgen",
+    one:"案件變數中心加公文組裝器，日常警務流程一站完成。",
+    problem:"同一案的當事人、案號、時間地點等資料，在不同文書與流程中反覆出現，每次都要重打。",
+    solution:"建立「案件變數中心」集中管理案件資料，搭配公文組裝器自動帶入；全程持續自動儲存，誤關視窗也不會遺失。",
+    features:["案件變數中心","公文組裝器","持續自動儲存"],
+    tech:["HTML","JavaScript","localStorage"],
+    impact:"目前為 v0.4.0 案件中心版，核心原則是低成本、安全、有效率。",
+    role:"設計案件變數中心的資料模型與自動儲存機制。",
+    flow:["在案件變數中心輸入一次案件資料", "公文組裝器自動帶入各類文書", "修改任一變數，所有文書同步更新", "全程自動儲存"],
+    highlights:["一個變數改一次，所有文書同步", "隨時自動儲存，誤關視窗也不會遺失", "以低成本、安全、有效率為設計原則"],
+    shots:[] },
+  { id:"cutos", name:"CutOS｜AI 影片剪輯系統", cat:"life", status:"dev", cover:"video", demo:"video",
+    one:"自己打造的 AI 剪輯程式，為夫妻美食旅遊頻道剪片，剪完接著用 AI 發文。",
+    problem:"想經營和老婆一起吃美食、去旅遊的 YouTube 與 Instagram 頻道，但每支影片都要從大量素材挑片段、剪接，非常花時間。",
+    solution:"自己開發 AI 剪輯程式：匯入拍攝素材，由 AI 協助挑出精華片段並完成剪輯，人工確認後輸出影片，再接上 AI 發文流程，從拍攝到上架一條龍。",
+    features:["匯入拍攝素材，由 AI 協助挑選精華片段","AI 協助剪輯，人工確認後輸出","剪好的影片接續 AI 撰寫貼文","為 YouTube 與 Instagram 頻道經營而設計"],
+    tech:["AI 影片剪輯","Web App","GitHub"],
+    impact:"用來經營自己的美食旅遊影片頻道，與 Pickyeaterr Content OS 一起構成個人內容營運流程。",
+    role:"獨立規劃與開發；本人即為使用者。",
+    flow:["匯入當天拍攝的影片素材","AI 分析素材並挑出精華片段","自動組成粗剪時間軸，人工微調","輸出影片並交給 AI 撰寫貼文"],
+    highlights:["從自己真實的頻道經營需求出發","AI 負責繁瑣的挑片與粗剪，人只做最後判斷","與部落格內容系統串成完整的個人內容流程"],
+    shots:[] },
   { id:"family-finance", name:"家庭理財室", cat:"life", status:"dev", cover:"phone", demo:"finance",
     one:"夫妻共用的資產總覽與投資決策 App。",
     problem:"資產分散在多家銀行、券商與交易所，投資容易憑感覺或跟風。",
@@ -936,6 +1040,17 @@ const SYSTEMS = [
     role:"規劃資產架構、投資規則與手機介面。",
     flow:["以唯讀方式同步銀行、券商、交易所資料", "切換個人、配偶或家庭合計", "查看資產配置與現金流", "依事先寫好的投資規則判斷是否加碼"],
     highlights:["以規則取代臨場感覺", "只用唯讀 API 同步資料", "以手機操作為主，夫妻共用"],
+    shots:[] },
+  { id:"transfer-doc", name:"移送書系統", cat:"police", status:"plan", cover:"form", demo:"docgen",
+    one:"在瀏覽器擬刑事案件移送書，取代容易當機的 Word。",
+    problem:"公務電腦記憶體不足，用 Word 擬移送書常常當機，稿子白打。",
+    solution:"依照「先拿範本、再替換內容」的實際擬稿習慣，做成以範本為核心的移送書擬稿工具，搭配自動儲存。",
+    features:["範本庫，依案類套用","欄位替換與即時預覽","自動儲存，當機不怕"],
+    tech:["HTML","JavaScript"],
+    impact:"規劃中，將與通緝案連動平台共用案件資料。",
+    role:"依自己實際擬稿的習慣規劃工具。",
+    flow:["選擇案類範本", "填入被移送人、案由、犯罪事實與證據", "即時預覽移送書", "自動儲存，完成後列印"],
+    highlights:["以「先拿範本、再替換內容」的實際習慣為核心", "在瀏覽器執行，避開 Word 當機問題", "規劃與通緝案連動平台共用案件資料"],
     shots:[] },
   { id:"wheel-coach", name:"Wheel Coach", cat:"life", status:"plan", cover:"chart", demo:"wheel",
     one:"美股選擇權 Covered Call 與 Cash-Secured Put 的決策教練。",
@@ -1491,12 +1606,7 @@ function renderHome(){
   const count = c => SYSTEMS.filter(s => s.cat === c).length;
   $("#stats").innerHTML = [[PROFILE.years,"年刑事實務經驗"],[SYSTEMS.length,"套自行開發系統"],[SYSTEMS.filter(s => s.status==="live").length,"套已實際使用中"],[CREDENTIALS.filter(c => c.hi).length,"項國家考試與專業資格"]]
     .map(([n,l]) => `<div><b>${n}</b><span>${l}</span></div>`).join("");
-  $("#featured").innerHTML = PROFILE.featured.map(id => { const i = SYSTEMS.findIndex(s => s.id === id); return card(SYSTEMS[i], i); }).join("");
-  const cats = [["all","全部",SYSTEMS.length], ...Object.entries(CATS).map(([k,v]) => [k,v,count(k)])];
-  $("#filters").innerHTML = cats.map(([k,v,n],i) => `<button type="button" id="f-${k}" data-cat="${k}" aria-pressed="${i===0}">${v}<span class="n">${n}</span></button>`).join("");
-  $("#filters").addEventListener("click", e => { const b = e.target.closest("button"); if(!b) return;
-    $$("#filters button").forEach(x => x.setAttribute("aria-pressed", x === b)); renderGrid(b.dataset.cat); });
-  renderGrid("all");
+  renderWorks();
   $("#caps").innerHTML = CAPS.map(([ic,t,d]) => `<div class="cap"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${ICONS[ic]}</svg></div><h3>${esc(t)}</h3><p>${esc(d)}</p></div>`).join("");
   $("#tech").innerHTML = TECH.map(t => `<span class="chip">${esc(t)}</span>`).join("");
   $("#timeline").innerHTML = EXPERIENCE.map(e => `<div class="tl"><div class="when">${esc(e.when)}</div><div><h3>${esc(e.title)}</h3><div class="org">${esc(e.org)}</div><ul>${e.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div></div>`).join("");
@@ -1508,7 +1618,38 @@ function renderHome(){
   $("#copy-tg").addEventListener("click", () => copy("@" + PROFILE.telegram, "已複製 Telegram 帳號"));
   $("#foot").innerHTML = `<span>© ${new Date().getFullYear()} ${esc(PROFILE.name)}. All rights reserved.</span><span>互動展示皆為示範資料，不含任何真實案件與個人資料</span>`;
 }
-function renderGrid(cat){ $("#grid").innerHTML = SYSTEMS.map((s,i) => ({s,i})).filter(({s}) => cat==="all" || s.cat===cat).map(({s,i}) => card(s,i)).join(""); }
+function shot(s, w){
+  return `<div class="shot" aria-hidden="true"><div class="shot-bar"><i></i><i></i><i></i><span>${esc(s.name)}</span></div><div class="shot-view"><div class="shot-inner" inert data-sid="${s.id}" data-w="${w}" style="width:${w}px"></div></div></div>`;
+}
+function caseCard(s, i, big){
+  const hl = (s.highlights || s.features).slice(0, big ? 3 : 2);
+  return `<article class="case${big ? " show" : ""}" style="--a:${ACCENT[s.cat]}">
+    <div class="stage-bg">${shot(s, big ? 760 : 960)}</div>
+    <div class="case-body">
+      <div class="case-top"><span class="no">NO.${no(i)} · ${CATS[s.cat]}</span>${pill(s.status)}</div>
+      <h3><a href="#${s.id}">${esc(s.name)}</a></h3>
+      <p class="one">${esc(s.one)}</p>
+      ${big && s.metrics ? `<div class="metrics">${s.metrics.map(([n,l]) => `<div><b>${n}</b><span>${l}</span></div>`).join("")}</div>` : ""}
+      <ul>${hl.map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+      ${big && s.link ? `<div class="acts"><a class="btn gold" href="#${s.id}">看介紹與互動展示 ${arrow}</a><a class="btn ghost" href="${s.link}" target="_blank" rel="noopener">${esc(s.linkLabel || "前往網站")}</a></div>` : `<div class="case-foot"><span class="tags">${s.tech.slice(0,3).map(esc).join(" · ")}</span><span class="go">查看介紹與操作 ${arrow}</span></div>`}
+    </div></article>`;
+}
+function renderWorks(){
+  const live = SYSTEMS.map((s,i) => [s,i]).filter(([s]) => s.status === "live");
+  const rest = SYSTEMS.map((s,i) => [s,i]).filter(([s]) => s.status !== "live");
+  const [first, ...others] = live;
+  $("#showcase").innerHTML = caseCard(first[0], first[1], true);
+  $("#cases").innerHTML = others.map(([s,i]) => caseCard(s,i,false)).join("");
+  $("#minis").innerHTML = rest.map(([s,i]) => `<a class="mini" href="#${s.id}"><span class="no">${no(i)}</span><span><b>${esc(s.name)}</b><small>${esc(s.one)}</small></span>${pill(s.status)}<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>`).join("");
+  const ro = window.ResizeObserver ? new ResizeObserver(es => es.forEach(e => fitShot(e.target))) : null;
+  $$(".shot-inner").forEach(el => {
+    const s = SYSTEMS.find(x => x.id === el.dataset.sid);
+    try { DEMOS[s.demo](el, s); } catch(err) {}
+    el.querySelectorAll("[id]").forEach(n => n.removeAttribute("id")); el.querySelectorAll("label[for]").forEach(n => n.removeAttribute("for"));
+    const view = el.parentElement; fitShot(view); ro && ro.observe(view);
+  });
+}
+function fitShot(view){ const inner = view.firstElementChild; if(inner) inner.style.transform = `scale(${view.clientWidth / (+inner.dataset.w || 1080)})`; }
 
 function renderDetail(i){
   const s = SYSTEMS[i], prev = SYSTEMS[(i-1+SYSTEMS.length)%SYSTEMS.length], next = SYSTEMS[(i+1)%SYSTEMS.length];
@@ -1619,6 +1760,35 @@ $("#dl-pdf").addEventListener("click", async e => {
 });
 if(window.claude?.use){ window.claude.use("downloads").then(d => { dl = d; }).catch(() => {}); }
 
+
+/* ===== 品牌細節互動 ===== */
+const JOURNEY = [["2015.06","臺灣警察專科學校 畢業"],["2015.10","航警局安檢大隊 警員"],["2019.01","升任刑事警察大隊 偵查佐"],["2020.06","空中大學 公共行政學士"],["2024","防制洗錢專業人員合格・加密貨幣調查訓練"],["2025.01","警正升官等考試 及格"],["2026","上榜吧 Rankup 上線"]];
+function renderBrand(){
+  $("#why-n").textContent = SYSTEMS.length;
+  $("#why-live").textContent = SYSTEMS.filter(s => s.status === "live").length;
+  $("#journey").innerHTML = JOURNEY.map(([d,t]) => `<li><b>${d}</b><span>${esc(t)}</span></li>`).join("");
+  $("#foot").innerHTML = `<span class="foot-sig">${esc(PROFILE.name)}　<span style="font-family:var(--font-latin);font-size:12px;letter-spacing:.3em;color:var(--muted)">${PROFILE.en}</span></span><span>互動展示皆為示範資料，不含任何真實案件與個人資料</span><a class="to-top" href="#top">回到頂端 <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 13V3M4 7l4-4 4 4"/></svg></a>`;
+}
+document.addEventListener("pointermove", e => {
+  const el = e.target.closest && e.target.closest(".case,.cred,.pillar,.mini,.d-nav a");
+  if(!el) return; el.classList.add("spot");
+  const r = el.getBoundingClientRect(); el.style.setProperty("--mx", (e.clientX - r.left) + "px"); el.style.setProperty("--my", (e.clientY - r.top) + "px");
+}, { passive:true });
+let ticking = false;
+function onScroll(){
+  if(ticking) return; ticking = true;
+  requestAnimationFrame(() => {
+    const d = document.documentElement, max = d.scrollHeight - d.clientHeight;
+    $("#progress-top").style.transform = `scaleX(${max > 0 ? d.scrollTop / max : 0})`;
+    if(document.body.dataset.view === "home"){
+      let cur = ""; $$("[data-spy]").forEach(a => { const s = document.getElementById(a.dataset.spy); if(s && s.getBoundingClientRect().top < 140) cur = a.dataset.spy; });
+      $$("[data-spy]").forEach(a => a.classList.toggle("on", a.dataset.spy === cur));
+    }
+    ticking = false;
+  });
+}
+window.addEventListener("scroll", onScroll, { passive:true });
+
 /* ===================== 路由 ===================== */
 let resumeReady = false;
 function route(){
@@ -1629,7 +1799,7 @@ function route(){
   else if(id === "live-demo" && was === "detail"){ document.getElementById("live-demo")?.scrollIntoView({behavior:"smooth"}); }
   else { document.body.dataset.view = "home"; if(was !== "home" && id) requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView()); }
 }
-renderHome(); route();
+renderHome(); renderBrand(); route(); onScroll();
 window.addEventListener("hashchange", route);
 </script>
 </body>
