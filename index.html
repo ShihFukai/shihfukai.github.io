@@ -870,16 +870,17 @@ const SYSTEMS = [
     flow:["打開入口頁", "點選要用的系統", "常用資料一鍵複製", "規劃整合進「百寶箱」"],
     highlights:["每天上班的第一個畫面", "省下記網址、找連結的時間", "單機 HTML，打開即用"],
     shots:[] },
-  { id:"exam-platform", name:"上榜吧｜警察考試備考APP", cat:"exam", status:"live", cover:"chart", demo:"exam",
-    one:"與同事共同研發的警察考試備考 App，涵蓋升官等、二技、警佐班、警特四等。",
-    problem:"警察考生多半輪班，讀書時間零碎；市面題庫缺少貼近警察考試的詳解，法條常常「好像都會」卻背不起來，也看不到整部法的結構。",
-    solution:"整合題庫、法規、AI 出題、遊戲化與警察專用班表。題目逐選項附詳解與錯題分析；法條可用填空遮罩自我檢測，並以法律心智圖對照全文；法規以全國法規資料庫、司法院憲法法庭等官方資料為準，再依考生班表找出零碎時間排讀書計畫。",
-    features:["逐選項詳解，AI 判斷是一知半解還是真正理解","AI 依考試範圍出題，不只刷歷屆題","法條填空遮罩，遮住重點自我檢測","法律心智圖與全文同步，看清整部法的結構","刑法、刑事訴訟法逐條記憶包（刑訴 712 條目，A／B／C 分級）","核心母法納入時自動匯入官方子法","遊戲化背誦：LV、警階、33 個頭銜","警察班表與 AI 讀書計畫；後台 AI 先寫詳解、再人工校對"],
-    tech:["React","TypeScript","Vite","IndexedDB","PWA","AI 出題"],
-    impact:"已上線使用。本人即為升官等考試及格者，下一步規劃以月付 399 元或年付的訂閱制產品推出。",
-    role:"與同事共同研發；負責產品規劃、遊戲化規則、法規資料與介面方向。",
-    flow:["登入選擇考試類別，自動帶出考試範圍與法條", "匯入班表，AI 找出零碎時間排讀書計畫", "刷題、看逐選項詳解，錯題自動收錄", "用填空遮罩與心智圖複習法條，累積經驗值升級"],
-    highlights:["題庫涵蓋高普考、關務、監獄、警特、警佐班、升官等、二技、司律等考題", "法規以官方資料為準，核心母法納入時自動匯入子法", "遊戲化成長系統明確標示與真實任用、升遷無關"],
+  { id:"exam-platform", name:"上榜吧 Rankup｜警察考試備考 App", cat:"exam", status:"live", cover:"chart", demo:"exam",
+    link:"https://jingzuo-app.web.app/about/", linkLabel:"前往上榜吧官網",
+    one:"給輪班警察的考試備考 App：6,800 多題歷屆試題、逐選項詳解、依勤務班表排讀書計畫。網頁版已上線，iPhone 版測試中。",
+    problem:"警察考生多半輪班，讀書時間零碎；考前最怕的，是以為自己會了。市面題庫缺少貼近警察考試的詳解，法規一修正，舊詳解就跟著過時。",
+    solution:"上榜吧以「考點」為單位追蹤學習：作答時標記確定程度，系統用隔日驗證判斷是否真的懂；錯題必須在兩個不同日子都答對才算完成。讀書計畫依勤務班表排進值勤空檔，法規每天對照全國法規資料庫，修法後自動重新校對受影響的題目。",
+    features:["逐選項詳解，附條號並可點開條文原文", "隔日驗證複習：新考點、待驗證、真懂三階段；「很確定卻答錯」列為錯誤觀念優先複習", "錯題討伐：兩個不同日子都答對才算完成，搭配等級與遊戲化介面", "出題分析：比對跨考試重複出題，依歷屆考過次數標出 93 條「必考」條文", "讀書計畫：輸入勤務班表，自動排入值勤空檔，進度落後會提醒", "法規修正連動：內建 262 部法規，每日比對全國法規資料庫", "資績與目標試算：反算警佐班筆試門檻，比較嘉獎與多考一分的效益", "圖卡速記、3,000 多句數字總整理、判解連結、模擬考、通勤語音朗讀"],
+    tech:["Web App", "iPhone App", "Firebase", "雲端帳號同步", "訂閱制"],
+    impact:"網頁版已上線、iPhone 版 TestFlight 測試中，兩邊帳號同步。收錄 101–115 年 6,800 多題、5,100 多個考點、262 部法規、1,200 多則判解摘要；Pro 方案規劃月訂 NT$290、年訂 NT$1,990。",
+    role:"研發者（與同事共同研發）；負責產品規劃、題庫與法規資料架構、學習機制與介面設計。",
+    flow:["首次開啟選定考試類別，之後只顯示該場考試的內容", "刷題時標記確定程度，看逐選項詳解", "系統依隔日驗證安排複習，錯題以考點追蹤討伐", "輸入勤務班表，自動排讀書計畫並追蹤進度", "模擬考計時作答，查看百分制成績與歷次走勢"],
+    highlights:["用數據找考點：分析 115 年警佐班 196 題，有 29 題幾乎與更早考過的題目相同", "法規修正後自動重新校對題目，詳解註明考試當時與現行規定的差異", "支援警佐班三類、升官等、警大二技、四等行政與刑事警察", "條號、數字與答案自動和法條原文比對，高頻條文另經兩輪逐題審查"],
     shots:[] },
   { id:"promotion", name:"警察升遷戰情室", cat:"exam", status:"live", cover:"chart", demo:"calc",
     one:"資績試算、獎勵累計與警佐班報考數據，一頁看清升遷局勢。",
@@ -1019,7 +1020,7 @@ function card(s,i){
   return `<a class="card" href="#${s.id}" style="--a:${ACCENT[s.cat]}">
     <div class="cover" aria-hidden="true">${cover(s.cover)}</div>
     <div class="meta"><div class="top"><span class="no">NO.${no(i)} · ${CATS[s.cat]}</span>${pill(s.status)}</div>
-      <h3>${esc(s.name)}</h3><p>${esc(s.one)}</p><span class="more">查看介紹與互動展示 ${arrow}</span></div></a>`;
+      <h3>${esc(s.name)}</h3><p>${esc(s.one)}</p><span class="more">${s.link ? "已上線 · " : ""}查看介紹與互動展示 ${arrow}</span></div></a>`;
 }
 const ICONS = {
   needs:'<path d="M4 6h16M4 12h10M4 18h7"/><path d="M17 15l2 2 3-4"/>',
@@ -1517,6 +1518,7 @@ function renderDetail(i){
     <div class="d-top" style="--a:${ACCENT[s.cat]}">
       <div><div class="label">No.${no(i)} · ${CATS[s.cat]}</div><h1>${esc(s.name)}</h1><p class="one">${esc(s.one)}</p></div>
       <div class="d-meta">${pill(s.status)}${s.tech.map(t => `<span class="pill plain">${esc(t)}</span>`).join("")}</div>
+      ${s.link ? `<div class="hero-actions" style="margin-top:22px"><a class="btn gold" href="${s.link}" target="_blank" rel="noopener">${esc(s.linkLabel || "前往網站")} ${arrow}</a><span class="fine" style="align-self:center;margin:0">${esc(s.link.replace(/^https?:\/\//,"").replace(/\/$/,""))}</span></div>` : ""}
     </div>
     <div id="live-demo" style="--a:${ACCENT[s.cat]};scroll-margin-top:90px">
       <div class="demo"><div class="demo-bar"><span class="dots"><i></i><i></i><i></i></span><span class="ttl"><b>${esc(s.name)}</b><span class="hide-sm">介面展示 · 可直接操作</span></span><span class="demo-tag">示範資料</span></div>
@@ -1566,7 +1568,7 @@ function renderResume(){
   const sysCard = (s,feat) => { const i = SYSTEMS.indexOf(s);
     return `<div class="r-s${feat?" feat":""}"><div class="t"><b>${esc(s.name)}</b><span style="display:flex;gap:6px;align-items:center"><span class="st ${s.status}">${STATUS[s.status]}</span><i>NO.${no(i)}</i></span></div>
       <div class="one">${esc(s.one)}</div><ul>${s.features.slice(0, feat?4:3).map(f => `<li>${esc(f)}</li>`).join("")}</ul>
-      ${feat?`<div class="one" style="color:#6E6862">成果：${esc(s.impact)}</div>`:""}<div class="tech">${s.tech.map(esc).join(" · ")}</div></div>`; };
+      ${feat?`<div class="one" style="color:#6E6862">成果：${esc(s.impact)}</div>`:""}<div class="tech">${s.tech.map(esc).join(" · ")}${s.link ? `　｜　${esc(s.link.replace(/^https?:\/\//,""))}` : ""}</div></div>`; };
   const pages = chunks.map((ch,k) => `<div class="a4"><div class="pg">
     <div class="r-p2h"><div><div class="k">PORTFOLIO · ${String(k+1).padStart(2,"0")}</div><h2>系統作品集${k===0?"":`（續）`}</h2></div><p>${k===0?"均為本人規劃並以 AI 協作開發<br>每套系統皆可於線上作品集互動體驗":`${CATS[ch[0].cat]}${ch.some(s=>s.cat!==ch[0].cat)?"、"+[...new Set(ch.map(s=>CATS[s.cat]))].slice(1).join("、"):""}`}</p></div>
     <div class="r-sys">${ch.map((s,j) => sysCard(s, k===0 && j<2)).join("")}</div>
